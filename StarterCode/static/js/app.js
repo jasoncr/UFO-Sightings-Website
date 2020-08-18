@@ -40,7 +40,6 @@ tableData.forEach((data) => {
 });
 
 // create table from the arrays
-var table = d3.select("table");
 var tbody = d3.select("tbody");
 
 //loop through each array and add to the table
@@ -75,24 +74,66 @@ function runEnter() {
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
 
-    var tr = d3.select("tr")
-    console.log(tr)
-    //var filteredData = tableData.filter(data => data.datetime === inputValue);
+
+    var filteredData = tableData.filter(data => data.datetime === inputValue);
+
+    //console.log(filteredData);
+
     
-    /*for (i = 0; i < datetime.length; i++) {
-        var fullname = tableData[i].getElementsByTagName("td");
-        if (fullname === inputValue) {
-            tableData[i].style.display = "";
-        } 
-        else {
-            tableData[i].style.display = "none";
-        }
-    }*/
+
+    tbody = d3.select("tbody")
+    row = d3.select("tr");
+
+    console.log(tbody)
+    for (var i = 0; i < row.length; i ++){
+        row[i].remove()
+    }
+
+    //row.remove(); 
+
+    //var row = tbody.append("tr");
+    //row.append("td").text("test")
     
-    for (i = 1; i < tr.length; i++) {
+
+    for (var i = 0; i < filteredData.length; i++) {
+        var row = tbody.append("tr");
+        row.append("td").text(filteredData[i][datetime]);
+        row.append("td").text(filteredData[i][city]);
+        row.append("td").text(filteredData[i][state]);
+        row.append("td").text(filteredData[i][country]);
+        row.append("td").text(filteredData[i][shape]);
+        row.append("td").text(filteredData[i][durationMinutes]);
+        row.append("td").text(filteredData[i][comments]);
+    }
+
+
+
+    /*var new_tbody = document.createElement('tbody');
+    populate_with_new_rows(new_tbody);
+    old_tbody.parentNode.replaceChild(new_tbody, old_tbody)
+
+
+    for (var i = 0; i < datetime.length; i++) {
+        var row = tbody.append("tr");
+        row.append("td").text(datetime[i]);
+        row.append("td").text(city[i]);
+        row.append("td").text(state[i]);
+        row.append("td").text(country[i]);
+        row.append("td").text(shape[i]);
+        row.append("td").text(durationMinutes[i]);
+        row.append("td").text(comments[i]);
+    }
+    */
+
+    
+    //for (i = 1; i < tr.length; i++) {
+        
         // Hide the row initially.
-        tr[i].style.display = "none";
+        //tr[i].style.display = "none";
+
     
+}
+    /*
         td = tr[i].getElementsByTagName("td");
         console.log(td)
         for (var j = 0; j < td.length; j++) {
@@ -103,43 +144,16 @@ function runEnter() {
             } 
         }
     }
-}
-/*
-(function(document) {
-            'use strict';
 
-            var TableFilter = (function(myArray) {
-                var search_input;
+    
 
-                function _onInputSearch(e) {
-                    search_input = e.target;
-                    var tables = document.getElementsByClassName(search_input.getAttribute('data-table'));
-                    myArray.forEach.call(tables, function(table) {
-                        myArray.forEach.call(table.tBodies, function(tbody) {
-                            myArray.forEach.call(tbody.rows, function(row) {
-                                var text_content = row.textContent.toLowerCase();
-                                var search_val = search_input.value.toLowerCase();
-                                row.style.display = text_content.indexOf(search_val) > -1 ? '' : 'none';
-                            });
-                        });
-                    });
-                }
-
-                return {
-                    init: function() {
-                        var inputs = document.getElementsByClassName('search-input');
-                        myArray.forEach.call(inputs, function(input) {
-                            input.oninput = _onInputSearch;
-                        });
-                    }
-                };
-            })(Array.prototype);
-
-            document.addEventListener('readystatechange', function() {
-                if (document.readyState === 'complete') {
-                    TableFilter.init();
-                }
-            });
-
-        })(document);
-*/
+/*for (i = 0; i < datetime.length; i++) {
+        var fullname = tableData[i].getElementsByTagName("td");
+        if (fullname === inputValue) {
+            tableData[i].style.display = "";
+        } 
+        else {
+            tableData[i].style.display = "none";
+        }
+    }*/
+    
