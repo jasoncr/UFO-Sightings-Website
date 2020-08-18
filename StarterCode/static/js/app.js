@@ -74,86 +74,28 @@ function runEnter() {
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
 
-
+    // Filter the data based off of the input element
     var filteredData = tableData.filter(data => data.datetime === inputValue);
 
-    //console.log(filteredData);
+    // Clears the old table body to be replaced with a new
+    tbody.remove()
 
-    
-
+    // Selects the table and body
+    table = d3.select("table")
     tbody = d3.select("tbody")
-    row = d3.select("tr");
+    //Adds a new table body to then add the rows and information based on filtered data
+    table.append("tbody")
 
-    console.log(tbody)
-    for (var i = 0; i < row.length; i ++){
-        row[i].remove()
-    }
-
-    //row.remove(); 
-
-    //var row = tbody.append("tr");
-    //row.append("td").text("test")
-    
-
+    // Adds the new data based off of date entered
     for (var i = 0; i < filteredData.length; i++) {
-        var row = tbody.append("tr");
-        row.append("td").text(filteredData[i][datetime]);
-        row.append("td").text(filteredData[i][city]);
-        row.append("td").text(filteredData[i][state]);
-        row.append("td").text(filteredData[i][country]);
-        row.append("td").text(filteredData[i][shape]);
-        row.append("td").text(filteredData[i][durationMinutes]);
-        row.append("td").text(filteredData[i][comments]);
+        row = d3.select("table>tbody").append("tr")
+        row.append("td").text(filteredData[i]['datetime']);
+        row.append("td").text(filteredData[i]['city']);
+        row.append("td").text(filteredData[i]['state']);
+        row.append("td").text(filteredData[i]['country']);
+        row.append("td").text(filteredData[i]['shape']);
+        row.append("td").text(filteredData[i]['durationMinutes']);
+        row.append("td").text(filteredData[i]['comments'])
     }
-
-
-
-    /*var new_tbody = document.createElement('tbody');
-    populate_with_new_rows(new_tbody);
-    old_tbody.parentNode.replaceChild(new_tbody, old_tbody)
-
-
-    for (var i = 0; i < datetime.length; i++) {
-        var row = tbody.append("tr");
-        row.append("td").text(datetime[i]);
-        row.append("td").text(city[i]);
-        row.append("td").text(state[i]);
-        row.append("td").text(country[i]);
-        row.append("td").text(shape[i]);
-        row.append("td").text(durationMinutes[i]);
-        row.append("td").text(comments[i]);
-    }
-    */
-
-    
-    //for (i = 1; i < tr.length; i++) {
-        
-        // Hide the row initially.
-        //tr[i].style.display = "none";
-
     
 }
-    /*
-        td = tr[i].getElementsByTagName("td");
-        console.log(td)
-        for (var j = 0; j < td.length; j++) {
-            cell = tr[i].getElementsByTagName("td")[j];
-            if (cell.innerHTML === inputValue) {
-                tr[i].style.display = "";
-                break;
-            } 
-        }
-    }
-
-    
-
-/*for (i = 0; i < datetime.length; i++) {
-        var fullname = tableData[i].getElementsByTagName("td");
-        if (fullname === inputValue) {
-            tableData[i].style.display = "";
-        } 
-        else {
-            tableData[i].style.display = "none";
-        }
-    }*/
-    
