@@ -88,7 +88,9 @@ function runEnter() {
 
     // Adds the new data based off of date entered
     for (var i = 0; i < filteredData.length; i++) {
+        //adds rows to hold the data
         row = d3.select("table>tbody").append("tr")
+        
         row.append("td").text(filteredData[i]['datetime']);
         row.append("td").text(filteredData[i]['city']);
         row.append("td").text(filteredData[i]['state']);
@@ -97,5 +99,4 @@ function runEnter() {
         row.append("td").text(filteredData[i]['durationMinutes']);
         row.append("td").text(filteredData[i]['comments'])
     }
-    
 }
