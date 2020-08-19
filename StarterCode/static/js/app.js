@@ -79,7 +79,7 @@ function runEnter() {
     var inputValueState = inputElementState.property("value").toLowerCase();
 
     // date, city, state supplied
-    if (inputValueDate != "" && inputValueCity != "" && inputElementState != "") {
+    if (inputValueDate != "" && inputValueCity != "" && inputValueState != "") {
         var filteredData = tableData.filter(data => data.datetime === inputValueDate 
             && data.city.toLowerCase() === inputValueCity
             && data.state.toLowerCase() === inputValueState);
@@ -126,7 +126,7 @@ function runEnter() {
     else if (inputValueState === "") {
         // filter on date and city
         var filteredData = tableData.filter(data => data.datetime === inputValueDate
-        && data.city.toLowerCase() === inputValuesCity);
+        && data.city.toLowerCase() === inputValueCity);
         console.log("date, city")
     }
 
