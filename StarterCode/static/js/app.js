@@ -72,20 +72,63 @@ function runEnter() {
     // Select the input element and get the raw HTML node
     var inputElementDate = d3.select("#datetime");
     var inputElementCity = d3.select("#city");
+    var inputElementState = d3.select("#state");
     // Get the value property of the input element
     var inputValueDate = inputElementDate.property("value");
     var inputValueCity = inputElementCity.property("value").toLowerCase();
+    var inputValueState = inputElementState.property("value").toLowerCase();
 
-    if (inputValueDate != "" && inputValueCity != "") {
+    // date, city, state supplied
+    if (inputValueDate != "" && inputValueCity != "" && inputElementState != "") {
         var filteredData = tableData.filter(data => data.datetime === inputValueDate 
-            && data.city.toLowerCase() === inputValueCity);
+            && data.city.toLowerCase() === inputValueCity
+            && data.state.toLowerCase() === inputValueState);
+        console.log("date, city, state")
+        console.log(inputValueState)
     }
-    else if (inputValueDate === "" && inputValueCity != "") {
-        var filteredData = tableData.filter(data => data.city === inputValueCity.toLowerCase());
+    // date not supplied
+    else if (inputValueDate === "") {
+        // city not supplied
+        if (inputValueCity === "") {
+            // only state
+            var filteredData = tableData.filter(data => data.state === inputValueState.toLowerCase());
+            console.log("state")
+        }
+        // state not supplied
+        else if (inputValueState === "") {
+            // only city
+            var filteredData = tableData.filter(data => data.city === inputValueCity.toLowerCase());
+            console.log("city")
+        }
+        else {
+            // filter on city and state
+            var filteredData = tableData.filter(data => data.city.toLowerCase() === inputValueCity
+            && data.state.toLowerCase() === inputValueState);
+            console.log("city, state")
+        }
     }
-    else if (inputValueDate != "" && inputValueCity === "") {
-        var filteredData = tableData.filter(data => data.datetime === inputValueDate);
-    };
+    // city not supplied
+    else if (inputValueCity === "") {
+        // state not supplied
+        if (inputValueState === "") {
+            // only date
+            var filteredData = tableData.filter(data => data.datetime === inputValueDate);
+            console.log("date")
+        }
+        else {
+            // filter on date and state
+            var filteredData = tableData.filter(data => data.datetime === inputValueDate
+            && data.state.toLowerCase() === inputValueState);
+            console.log("date, state")
+        }
+    }
+    // state not supplied
+    else if (inputValueState === "") {
+        // filter on date and city
+        var filteredData = tableData.filter(data => data.datetime === inputValueDate
+        && data.city.toLowerCase() === inputValuesCity);
+        console.log("date, city")
+    }
 
     // Clears the old table body to be replaced with a new
     tbody.remove()
