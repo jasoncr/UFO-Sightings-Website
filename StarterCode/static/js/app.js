@@ -42,7 +42,7 @@ tableData.forEach((data) => {
 // create table from the arrays
 var tbody = d3.select("tbody");
 
-// loop through each array and add to the table
+// loop through each array and add each element to the table
 for (var i = 0; i < datetime.length; i++) {
     var row = tbody.append("tr");
     row.append("td").text(datetime[i]);
