@@ -70,12 +70,22 @@ function runEnter() {
     // Prevent the page from refreshing
     d3.event.preventDefault();
     // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
+    var inputElementDate = d3.select("#datetime");
+    var inputElementCity = d3.select("#city");
     // Get the value property of the input element
-    var inputValue = inputElement.property("value");
+    var inputValueDate = inputElementDate.property("value");
+    var inputValueCity = inputElementCity.property("value").toLowerCase();
 
-    // Filter the data based off of the input element
-    var filteredData = tableData.filter(data => data.datetime === inputValue);
+    if (inputValueDate != "" && inputValueCity != "") {
+        var filteredData = tableData.filter(data => data.datetime === inputValueDate 
+            && data.city.toLowerCase() === inputValueCity);
+    }
+    else if (inputValueDate === "" && inputValueCity != "") {
+        var filteredData = tableData.filter(data => data.city === inputValueCity.toLowerCase());
+    }
+    else if (inputValueDate != "" && inputValueCity === "") {
+        var filteredData = tableData.filter(data => data.datetime === inputValueDate);
+    };
 
     // Clears the old table body to be replaced with a new
     tbody.remove()
