@@ -83,7 +83,7 @@ function runEnter() {
     // Selects the table and body
     table = d3.select("table")
     tbody = d3.select("tbody")
-    //Adds a new table body to then add the rows and information based on filtered data
+    // Adds a new table body to then add the rows and information based on filtered data
     table.append("tbody")
 
     // Renders the new data based off of date entered
