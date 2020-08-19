@@ -58,7 +58,7 @@ for (var i = 0; i < datetime.length; i++) {
 // select the button 
 var button = d3.select("#filter-btn");
 
-//select the form
+// select the form
 var form = d3.select("form")
 
 //create event handlers
@@ -86,7 +86,7 @@ function runEnter() {
     //Adds a new table body to then add the rows and information based on filtered data
     table.append("tbody")
 
-    // Adds the new data based off of date entered
+    // Renders the new data based off of date entered
     for (var i = 0; i < filteredData.length; i++) {
         //adds rows to hold the data
         row = d3.select("table>tbody").append("tr")
