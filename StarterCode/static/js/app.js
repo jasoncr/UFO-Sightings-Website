@@ -69,11 +69,11 @@ form.on("submit",runEnter);
 function runEnter() {
     // Prevent the page from refreshing
     d3.event.preventDefault();
-    // Select the input element and get the raw HTML node
+    // Select the input element(s) and get the raw HTML nodes
     var inputElementDate = d3.select("#datetime");
     var inputElementCity = d3.select("#city");
     var inputElementState = d3.select("#state");
-    // Get the value property of the input element
+    // Get the value property of the input element(s)
     var inputValueDate = inputElementDate.property("value");
     var inputValueCity = inputElementCity.property("value").toLowerCase();
     var inputValueState = inputElementState.property("value").toLowerCase();
