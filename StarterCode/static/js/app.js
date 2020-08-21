@@ -1,7 +1,7 @@
 // from data.js
 var tableData = data;
 
-// Create empty arrays to store the table values
+// Create empty arrays to store the data table values
 var datetime = [];
 var city = [];
 var state = [];
@@ -39,7 +39,7 @@ tableData.forEach((data) => {
    });
 });
 
-// create table from the arrays
+// create table for the arrays
 var tbody = d3.select("tbody");
 
 // loop through each array and add each element to the table
@@ -54,10 +54,8 @@ for (var i = 0; i < datetime.length; i++) {
     row.append("td").text(comments[i]);
 }
 
-
 // select the button 
 var button = d3.select("#filter-btn");
-
 // select the form
 var form = d3.select("form")
 
@@ -69,6 +67,7 @@ form.on("submit",runEnter);
 function runEnter() {
     // Prevent the page from refreshing
     d3.event.preventDefault();
+
     // Select the input element(s) and get the raw HTML nodes
     var inputElementDate = d3.select("#datetime");
     var inputElementCity = d3.select("#city");
@@ -78,6 +77,8 @@ function runEnter() {
     var inputValueCity = inputElementCity.property("value").toLowerCase();
     var inputValueState = inputElementState.property("value").toLowerCase();
 
+    
+    //Conditionals to accomodate which filter is being used
     // date, city, state supplied
     if (inputValueDate != "" && inputValueCity != "" && inputValueState != "") {
         var filteredData = tableData.filter(data => data.datetime === inputValueDate 
