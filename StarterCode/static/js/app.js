@@ -65,6 +65,7 @@ form.on("submit",runEnter);
 
 // Complete the event handler function for the form
 function runEnter() {
+    
     // Prevent the page from refreshing
     d3.event.preventDefault();
 
@@ -77,7 +78,7 @@ function runEnter() {
     var inputValueCity = inputElementCity.property("value").toLowerCase();
     var inputValueState = inputElementState.property("value").toLowerCase();
 
-    
+
     //Conditionals to accomodate which filter is being used
     // date, city, state supplied
     if (inputValueDate != "" && inputValueCity != "" && inputValueState != "") {
