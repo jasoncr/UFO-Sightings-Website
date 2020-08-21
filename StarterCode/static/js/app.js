@@ -61,7 +61,7 @@ var button = d3.select("#filter-btn");
 // select the form
 var form = d3.select("form")
 
-//create event handlers
+// create event handlers
 button.on("click", runEnter);
 form.on("submit",runEnter);
 
@@ -98,8 +98,7 @@ function runEnter() {
             // only city
             var filteredData = tableData.filter(data => data.city === inputValueCity.toLowerCase());
             console.log("filtered on : city")
-        }
-        else {
+        } else {
             // filter on city and state
             var filteredData = tableData.filter(data => data.city.toLowerCase() === inputValueCity
             && data.state.toLowerCase() === inputValueState);
@@ -113,8 +112,7 @@ function runEnter() {
             // only date
             var filteredData = tableData.filter(data => data.datetime === inputValueDate);
             console.log("filtered on : date")
-        }
-        else {
+        } else {
             // filter on date and state
             var filteredData = tableData.filter(data => data.datetime === inputValueDate
             && data.state.toLowerCase() === inputValueState);
