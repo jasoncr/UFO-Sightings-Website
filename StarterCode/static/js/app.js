@@ -83,8 +83,7 @@ function runEnter() {
         var filteredData = tableData.filter(data => data.datetime === inputValueDate 
             && data.city.toLowerCase() === inputValueCity
             && data.state.toLowerCase() === inputValueState);
-        console.log("date, city, state")
-        console.log(inputValueState)
+        console.log("filtered on : date, city, state")
     }
     // date not supplied
     else if (inputValueDate === "") {
@@ -92,19 +91,19 @@ function runEnter() {
         if (inputValueCity === "") {
             // only state
             var filteredData = tableData.filter(data => data.state === inputValueState.toLowerCase());
-            console.log("state")
+            console.log("filtered on : state")
         }
         // state not supplied
         else if (inputValueState === "") {
             // only city
             var filteredData = tableData.filter(data => data.city === inputValueCity.toLowerCase());
-            console.log("city")
+            console.log("filtered on : city")
         }
         else {
             // filter on city and state
             var filteredData = tableData.filter(data => data.city.toLowerCase() === inputValueCity
             && data.state.toLowerCase() === inputValueState);
-            console.log("city, state")
+            console.log("filtered on : city, state")
         }
     }
     // city not supplied
@@ -113,13 +112,13 @@ function runEnter() {
         if (inputValueState === "") {
             // only date
             var filteredData = tableData.filter(data => data.datetime === inputValueDate);
-            console.log("date")
+            console.log("filtered on : date")
         }
         else {
             // filter on date and state
             var filteredData = tableData.filter(data => data.datetime === inputValueDate
             && data.state.toLowerCase() === inputValueState);
-            console.log("date, state")
+            console.log("filtered on : date, state")
         }
     }
     // state not supplied
@@ -127,7 +126,7 @@ function runEnter() {
         // filter on date and city
         var filteredData = tableData.filter(data => data.datetime === inputValueDate
         && data.city.toLowerCase() === inputValueCity);
-        console.log("date, city")
+        console.log("filtered on : date, city")
     }
 
     // Clears the old table body to be replaced with a new
