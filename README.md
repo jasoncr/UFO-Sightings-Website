@@ -1,2 +1,7 @@
 # javascript-challenge
-In this challenge we use the starter code for the html and supplied UFO sightings data to display a table of all the UFO sightings. Then we create code to display the sightings from a specific date that is passed in the searchbar. 
+I wanted to create an easy way to visualize some UFO sightings information is a simple and filterable website. Therefore, I used only HTML, CSS, and JavaScript to create an easy to navigate and simple webpage. The data was stored in JS file. User can filter the data by Date, City, State, or any combination of the three. This HTML can be opened and viewed in the browser. 
+
+Below is an example of the data recorded on 1/2/2010.
+
+
+![Sample1](/images/092659.png)
