@@ -4,4 +4,4 @@ I wanted to create an easy way to visualize some UFO sightings information is a 
 Below is an example of the data recorded on 1/2/2010.
 
 
-![Sample1](/images/092659.png)
+![Sample1](/StarterCode/static/images/092659.png)
